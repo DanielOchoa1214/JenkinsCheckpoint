@@ -13,7 +13,8 @@ public class Calculator {
         return a * b;
     }
 
-    public int divide(int a, int b){
-        return a / b;
+    public int divide(int a, int b) throws Exception {
+        if( b != 0) return a / b;
+        throw new Exception("Can'n divide by 0 :(");
     }
 }

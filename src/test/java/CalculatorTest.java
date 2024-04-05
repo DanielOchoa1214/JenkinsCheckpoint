@@ -48,14 +48,19 @@ public class CalculatorTest {
     }
 
     @Test
-    public void DivisionTest(){
+    public void DivisionTest() throws Exception {
         int result = c.divide(4, 9);
         Assert.assertEquals(result, 0);
     }
 
     @Test
-    public void DivisionTestWithNegatives(){
+    public void DivisionTestWithNegatives() throws Exception {
         int result = c.divide(4, -9);
         Assert.assertEquals(result, 0);
+    }
+
+    @Test(expectedExceptions = Exception.class)
+    public void DivisionTestWithBy0() throws Exception {
+        c.divide(4, 0);
     }
 }
