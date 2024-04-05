@@ -1,4 +1,10 @@
-FROM openjdk:17-alpine
-EXPOSE 8081
-ADD target/SimpleCalculator-1.0-SNAPSHOT.jar SimpleCalculator-1.0-SNAPSHOT.jar
-ENTRYPOINT [ "java", "-jar", "SimpleCalculator-1.0-SNAPSHOT.jar"]
+FROM openjdk:latest
+
+WORKDIR /usrapp/bin
+
+ENV PORT 6000
+
+COPY /target/classes /usrapp/bin/classes
+COPY /target/dependency /usrapp/bin/dependency
+
+CMD ["java","-cp","./classes:./dependency/*","org.example.Main"]
